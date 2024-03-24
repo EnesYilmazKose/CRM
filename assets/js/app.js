@@ -45,7 +45,7 @@ function addCustomer(e) {
 function deleteCustomer(e) {
     e.preventDefault();
     if(e.target.className === "btn btn-danger") {
-        ui.deleteCustomerFromUI(e.target.parentElement.parentElement);
+        ui.deleteCustomerFromUI(e.target.parentElement.parentElement.parentElement);
         storage.deleteCustomerFromStorage(e.target.parentElement.previousElementSibling.textContent);
     }
 }

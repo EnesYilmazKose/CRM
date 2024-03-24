@@ -6,13 +6,13 @@ UI.prototype.addCustomerToUI = (newCustomer) => {
     const customerList = document.getElementById('customers');
     customerList.innerHTML +=
         `
-        <tr>
-            <td>${newCustomer.name}</td>
-            <td>${newCustomer.surname}</td>
-            <td>${newCustomer.contactNumber}</td>
-            <td>${newCustomer.email}</td>
-            <td><a href="#" class="btn btn-danger"><i class="bi bi-dash-circle"></i></a></td>
-        </tr>
+            <tr>
+                <td>${newCustomer.name}</td>
+                <td>${newCustomer.surname}</td>
+                <td>${newCustomer.contactNumber}</td>
+                <td>${newCustomer.email}</td>
+                <td><a href="#" class="btn btn-danger"><i class="bi bi-dash-circle"></i></a></td>
+            </tr>
         `;
 }
 
@@ -48,6 +48,7 @@ UI.prototype.loadAllCustomers = (customers) => {
                 <td>${customer.email}</td>
                 <td><a href="#" class="btn btn-danger"><i class="bi bi-dash-circle"></i></a></td>
             </tr>
+            
         `
     })
 }
