@@ -3,6 +3,7 @@ const nameElement = document.getElementById('name');
 const surnameElement = document.getElementById('surname');
 const contactNumberElement = document.getElementById('contactNumber');
 const emailElement = document.getElementById('email');
+const noteElement = document.getElementById('note');
 const cardBody = document.querySelectorAll('.card-body')[1];
 const clear = document.getElementById('clear-customers');
 const hide = document.getElementById('hideButton');
@@ -33,13 +34,15 @@ function addCustomer(e) {
     const surname = surnameElement.value;
     const contactNumber = contactNumberElement.value;
     const email = emailElement.value;
+    const note = noteElement.value;
 
     if (name === "" || surname === "" || contactNumber === "" || email === "") {
         ui.displayMessage("Make sure fill all spaces!", "danger");
     }
     else {
-        const newCustomer = new Customer(name, surname, contactNumber, email);
+        const newCustomer = new Customer(name, surname, contactNumber, email, note);
         ui.addCustomerToUI(newCustomer);
+        ui.addNotetoCustomerToUI(newCustomer);
         storage.addCustomerToStorage(newCustomer);
         ui.displayMessage('Customer succesfully added!', "success");
     }

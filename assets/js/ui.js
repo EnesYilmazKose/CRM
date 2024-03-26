@@ -17,6 +17,23 @@ UI.prototype.addCustomerToUI = (newCustomer) => {
         `;
 }
 
+UI.prototype.addNotetoCustomerToUI = (customer) => {
+    const customerDetailsList = document.getElementById('customerDetails');
+    customerDetailsList.innerHTML +=
+        `
+        <tr>
+            <td>${customer.name}</td>
+            <td>${customer.surname}</td>
+            <td>${customer.contactNumber}</td>
+            <td>${customer.email}</td>
+        </tr>
+        <tr>
+            <li>
+                ${customer.notes}
+            </li>
+        </tr>    
+        `
+}
 UI.prototype.clearInputs = () => {
     for (let i = 0; i < arguments.length; i++) {
         arguments[i].value = "";
@@ -52,6 +69,22 @@ UI.prototype.loadAllCustomers = (customers) => {
             </tr>
             
         `;
+
+        const customerDetailsList = document.getElementById('customerDetails');
+        customerDetailsList.innerHTML +=
+            `
+            <tr>
+                <td>${customer.name}</td>
+                <td>${customer.surname}</td>
+                <td>${customer.contactNumber}</td>
+                <td>${customer.email}</td>
+            </tr>
+            <tr>
+                <li>
+                    ${customer.note}
+                </li>
+            </tr>    
+            `;
     })
 }
 
