@@ -16,7 +16,7 @@
 
     <div class="container mt-5">
         <div class="card row">
-            <div class="card-header">
+            <div class="card-header" style="font-size: larger;">
                 Customer Relationship Management
             </div>
             <div class="card-body">
@@ -49,21 +49,43 @@
                     <h5 class="card-title">Customers</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="customerTable" style="display: inline-table;">
                         <thead id="customerTable">
                             <tr class="table-secondary">
                                 <th scope="col">Name</th>
                                 <th scope="col">Surname</th>
                                 <th scope="col">Contact Number</th>
                                 <th scope="col">E-Mail</th>
+                                <th scope="col">Details</th>
                                 <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody id="customers">
 
                         </tbody>
+                        
                     </table>
-                    <a href="#" id="clear-customers" class="btn btn-warning">Delete All Customers</a>
+
+                    <table class="table table-hover" id="customerDetailTable" style="display: none;" >
+                        <thead>
+                            <tr class="table-secondary">
+                                <th scope="col">Name</th>
+                                <th scope="col">Surname</th>
+                                <th scope="col">Contact Number</th>
+                                <th scope="col">E-Mail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>asd</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                    <a href="#" id="clear-customers" class="btn btn-warning" style="display: inline-block;">Delete All Customers</a>
+                    <p style="font-weight: bold; display: none; font-size: larger; font-style: italic; padding-top: 20px;">
+                        Refresh to see customer list.
+                    </p>
                 </div>
             </div>
         </div>

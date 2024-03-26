@@ -5,6 +5,8 @@ const contactNumberElement = document.getElementById('contactNumber');
 const emailElement = document.getElementById('email');
 const cardBody = document.querySelectorAll('.card-body')[1];
 const clear = document.getElementById('clear-customers');
+const hide = document.getElementById('hideButton');
+const customerDetailTable = document.getElementById('customerDetailTable');
 
 const ui = new UI();
 const storage = new Storage();
@@ -21,6 +23,7 @@ function eventlistener() {
 
     cardBody.addEventListener('click', deleteCustomer);
     clear.addEventListener('click', clearAllCustomers);
+    cardBody.addEventListener('click', showHideDetails);
 }
 
 function addCustomer(e) {
@@ -46,7 +49,7 @@ function deleteCustomer(e) {
     e.preventDefault();
     if(e.target.className === "btn btn-danger") {
         ui.deleteCustomerFromUI(e.target.parentElement.parentElement);
-        storage.deleteCustomerFromStorage(e.target.parentElement.previousElementSibling.textContent);
+        storage.deleteCustomerFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent);
     }
 }
 
@@ -54,5 +57,16 @@ function clearAllCustomers() {
     if(confirm("Are You Sure?")) {
         ui.clearAllCustomersFromUI();
         storage.clearAllCustomersFromStorage();
+    }
+}
+
+function showHideDetails(e) {
+    e.preventDefault();
+    if(e.target.className === "btn btn-info") {
+        ui.hideDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement);
+        ui.showDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling);
+        ui.hideDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling);
+        ui.showDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling);
+
     }
 }
