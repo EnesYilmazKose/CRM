@@ -4,7 +4,7 @@ const surnameElement = document.getElementById('surname');
 const contactNumberElement = document.getElementById('contactNumber');
 const emailElement = document.getElementById('email');
 const noteElement = document.getElementById('note');
-const cardBody = document.querySelectorAll('.card-body')[1];
+const cardBody = document.querySelectorAll('.card-body')[2];
 const clear = document.getElementById('clear-customers');
 const hide = document.getElementById('hideButton');
 const customerDetailTable = document.getElementById('customerDetailTable');
@@ -25,6 +25,28 @@ function eventlistener() {
     cardBody.addEventListener('click', deleteCustomer);
     clear.addEventListener('click', clearAllCustomers);
     cardBody.addEventListener('click', showHideDetails);
+    document.getElementById('searchBarCustomer').addEventListener('input', function () {
+        const searchText = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#customers tr');
+
+        rows.forEach(function (row) {
+            const cells = row.querySelectorAll('td');
+            let found = false;
+
+            cells.forEach(function (cell) {
+                const text = cell.textContent.toLowerCase();
+                if (text.includes(searchText)) {
+                    found = true;
+                }
+            });
+
+            if (found) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
 }
 
 function addCustomer(e) {
@@ -70,6 +92,6 @@ function showHideDetails(e) {
         ui.showDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling);
         ui.hideDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling);
         ui.showDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.nextElementSibling.nextElementSibling.nextElementSibling);
-
+        ui.hideDetailsUI(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling);
     }
 }

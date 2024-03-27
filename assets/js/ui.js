@@ -41,7 +41,7 @@ UI.prototype.clearInputs = () => {
 }
 
 UI.prototype.displayMessage = (message, type) => {
-    const cardBody = document.querySelector(".card-body");
+    const cardBody = document.querySelector("#customerInputDiv");
 
     const div = document.createElement("div");
     div.className = `alert alert-${type}`;
